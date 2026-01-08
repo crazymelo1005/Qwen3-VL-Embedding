@@ -196,7 +196,7 @@ def get_image_from_url(url) -> Image.Image:
     return img
 
 
-model = LLM(model="Qwen/Qwen3-VL-Embedding-2B", runner="pooling", max_model_len=8192)
+model = LLM(model="Qwen/Qwen3-VL-Embedding-2B", runner="pooling")
 
 image = get_image_from_url("https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen-VL/assets/demo.jpeg")
 image_placeholder = "<|vision_start|><|image_pad|><|vision_end|>"
@@ -264,7 +264,6 @@ from vllm import LLM
 model = LLM(
     model="Qwen/Qwen3-VL-Reranker-2B",
     runner="pooling",
-    max_model_len=32768,
     hf_overrides={
         "architectures": ["Qwen3VLForSequenceClassification"],
         "classifier_from_token": ["no", "yes"],
